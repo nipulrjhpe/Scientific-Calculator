@@ -112,6 +112,9 @@ public class Parser
             sections.push(s);
         }
 
+        if(Character.isLetter(sections.peek().charAt(0)))
+            return simplifyFunction(generateFunction(sections.pop()));
+
         return evaluatePostfix(generatePostfix(sections.pop()));
     }
 
